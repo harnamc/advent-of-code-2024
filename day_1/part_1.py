@@ -1,21 +1,13 @@
 from pathlib import Path
 from core.logger import get_logger
+from day_1.day_1_helper import get_sorted_first_and_second_list, read_file
 
 
-logger = get_logger("day_1")
-
-
-def read_file(file_path):
-    with open(file_path, "r") as file:
-        data = [tuple(map(int, line.split())) for line in file]
-    return data
-
-
+logger = get_logger("day_1_part_1")
 current_directory = Path(__file__).parent
 data = read_file(f"{current_directory}/input.txt")
 
-sorted_first_list = [x[0] for x in sorted(data, key=lambda x: x[0])]
-sorted_second_list = [x[1] for x in sorted(data, key=lambda x: x[1])]
+sorted_first_list, sorted_second_list = get_sorted_first_and_second_list(data)
 
 if len(sorted_first_list) != len(sorted_second_list):
     logger.error("[ERROR]: Lists A and list B are not the same length.")
