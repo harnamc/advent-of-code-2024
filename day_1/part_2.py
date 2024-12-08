@@ -1,11 +1,12 @@
 from pathlib import Path
-from core.logger import get_logger
-from day_1.day_1_helper import get_first_and_second_list, read_file
 
+from core.helper import read_input_file_to_tuple_of_ints
+from core.logger import get_logger
+from day_1.day_1_helper import get_first_and_second_list
 
 logger = get_logger("day_2_part_2")
 current_directory = Path(__file__).parent
-data = read_file(f"{current_directory}/input.txt")
+data = read_input_file_to_tuple_of_ints(f"{current_directory}/input.txt")
 
 first_list, second_list = get_first_and_second_list(data)
 
